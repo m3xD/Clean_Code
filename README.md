@@ -47,3 +47,51 @@
 ### 4. Bonus:
 - Các observers có thể chủ động pull dữ liệu, chọn lọc các dữ liệu cần thay vì lấy một cục dữ liệu dư thừa.
 - Bằng cách implement các methods get trong object, observers giờ đây tự do hơn.
+
+## Decorator Pattern:
+### 1. Đặt vấn đề:
+- Khi muốn thêm các tính năng mới cho một object mà không làm thay đổi các object này.
+- Khi muốn việc thay đổi tính năng thực hiện trong quá trình run-time.
+- Khi các đối tượng kh thể thêm tính năng bằng mối quan hệ kế thừa.
+### 2. Giải pháp:
+- Sử dụng một interface quy định các methods chung cho tất cả các component tham gia.
+- Một abstract class sẽ implement interface gọi là Decorator, các decorators sẽ có một trường để lưu trữ giá trị đối tượng gốc. Trong các Decorators, ta có thể bổ sung thêm các tính năng cần thiết.
+- Các concreate class được extends/implement từ Decorators sẽ implement các tính năng mới từ Decorators.
+![decorators](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781492077992/files/assets/f0101-01.png)
+- Ví dụ: ta có thể đọc file txt bằng cách sử dụng concreate decorator là FileInputStream, đồng thời muốn tận dụng các tính năng khác, ví dụ: BufferedInputStream.
+```
+  InputStream in = new FileInputStream('smt.txt');
+  in = new BufferedInputStream();
+```
+### 3. Điểm mạnh:
+- Có khả năng thêm các tính năng trong quá trình run-time.
+- Đối tượng có thể wrapper nhiều lần.
+
+## Factory Abstract Pattern:
+### 1. Đặt vấn đề:
+- Ta muốn khởi tạo các đối tượng mà không để lộ phần logic khởi tạo đối tượng với client.
+- Được sử dụng khi ta có một lớp cha với nhiều lớp con, cần phải trả về object dựa vào đầu vào.
+### 2. Giải pháp:
+- Bổ sung thêm một lớp Factory có nhiệm vụ sử dụng if-else hoặc switch-case để xác định class đầu ra.
+- Super class có thể là class, interface hoặc là abstract class.
+- Subclass sẽ implement các methods của supperclass. 
+![factory](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781492077992/files/assets/f0156-01.png)
+- Ta có thể tạo thêm các concreate factory class nếu có nhiều superclass.
+### 3. Điểm mạnh:
+- Giảm sự phụ thuộc giữa các class, code ở phía client sẽ không thay đổi cho dù có sự thay đổi ở subclass hay factory class.
+- Nới rộng code hơn khi có nhiều superclass bằng cách extends/implement factory class.
+- Khởi tạo các object và che dấu logic.
+
+### Singleton Pattern:
+### 1. Đặt vấn đề:
+- Mong muốn có một đối tượng duy nhất để có thể truy xuất mọi nơi.
+- Sử dụng global variable nhưng vi phạm qui tắc tính đóng gói của OOP.
+### 2. Giải pháp:
+- Sử dụng class có private constructor để chỉ có thể khởi tạo trong class.
+- Đặt biến có phạm vi private.
+- Sử dụng getter để có thể lấy được instance.
+### 3. Điểm mạnh:
+- Chỉ có 1 instance duy nhất để truy cập.
+- Có thể sử dụng cho các desgin pattern khác như Factory Abstract.
+
+### 
