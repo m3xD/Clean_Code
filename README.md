@@ -1,5 +1,13 @@
 # Clean Code
 
+## SOLID
+### Single responsibility principle:
+- Các class chỉ nắm giữ một chức năng, chỉ sửa class với một mục đích duy nhất.
+### Open-Closed principle
+- Có thể mở rộng class thông qua các interface, nhưng không sửa lại class đã hoạt động tốt.
+### Liskov substitution principle:
+- Trong một chương trình, các object của class con có thể thay thế class cha mà không làm thay đổi bản chất của class cha.
+
 ## Stagery Pattern:
 ### 1. Đặt vấn đề:
 - Khi class muốn thêm các methods vào một class được cài đặt trước.
@@ -94,4 +102,24 @@
 - Chỉ có 1 instance duy nhất để truy cập.
 - Có thể sử dụng cho các desgin pattern khác như Factory Abstract.
 
-### 
+### Proxy Pattern:
+### 1. Đặt vấn đề:
+- Mong muốn bổ sung một số thao tác khi thực hiện trên class thực (xác thực,..)
+- Khi muốn thực hiện remote trên môi trường mạng.
+- Cần nâng cao hiệu năng tải.
+### 2. Giải pháp:
+- Proxy đứng ra làm đại diện cho class thực để đảm bảo một số yêu cầu hay điều kiện.
+- Tất cả các truy cập đến class thực đều phải thông qua proxy.
+- Proxy định nghĩa lại một số hành vi sao cho phù hợp với mong muốn người sử dụng, đồng thời thực thi những methods trên class thực.
+- Đồng nghĩa proxy nắm giữ references của class thực (quan hệ HAS-A).
+- Có nhiều phân loại proxy như: vitural proxy, protection proxy, remote proxy,..., các proxy này sẽ phục vụ mục đích cụ thể của người sử dụng.
+- Nhìn chung thì các loại proxy đều có đặc điểm chung như:
+  * Cung cấp khả năng truy cập gián tiếp qua proxy.
+  * Reference đến đối tượng đích.
+  * Cả reference và proxy đều có cùng một interface.
+### 3. Điểm mạnh:
+- Có thể thiết lập nhiều thao tác trước khi thực hiện trên class đích.
+- Giảm chi phí khi chỉ thực sự khởi tạo class đích.
+- Tăng khả năng chịu tải.
+- Dễ nâng cấp, bảo trì.
+
