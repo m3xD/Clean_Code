@@ -3,10 +3,29 @@
 ## SOLID
 ### Single responsibility principle:
 - Các class chỉ nắm giữ một chức năng, chỉ sửa class với một mục đích duy nhất.
+- Được sử dụng ở Stagery Pattern, Observer Pattern,....
 ### Open-Closed principle
 - Có thể mở rộng class thông qua các interface, nhưng không sửa lại class đã hoạt động tốt.
+- Được sử dụng trên Stagery Pattern, Factory Pattern,...
 ### Liskov substitution principle:
 - Trong một chương trình, các object của class con có thể thay thế class cha mà không làm thay đổi bản chất của class cha.
+- Ví dụ kinh điển: Square và Rectangle.
+  * Square kế thừa lớp Rectangle, thiết lập độ dài các cạnh bằng nhau khi gọi các setter về chiều dài hay chiều rộng trên lớp cha là Rectangle.
+  * Nhưng nếu khởi tạo lớp rectangle reference đến square thì hành vi setter các cạnh không còn đúng --> vi phạm LSP
+  * Giải pháp là tạo một lớp cha là Shape, Square và Rectangle sẽ kế thừa lớp cha đó.
+- Một số trường hợp vi phạm LSP:
+  * Lớp kế thừa từ lớp cha implement lại methods nhưng có chức năng khác hoàn toàn.
+  * Lớp kế thừa từ lớp cha implement lại methods nhưng không thực hiện chức năng gì/không sử dụng.
+### Interface segregation principle:
+- Thay vì sử dụng interface có nhiều methods, chia interface lớn thành các interface nhỏ có điểm chung.
+- Số lượng methods lớn làm code khó bảo trì, code bị lặp lại, dễ phát sinh bug.
+### Dependency Inversion Principle:
+- Nguyên tắc được phát biểu như sau:
+  * Các module cấp cao không phụ thuộc vào các module cấp thấp hơn, các module đều nên phụ thuộc vào interface.
+  * Các module giao tiếp với nhau thông qua interface, không thông qua implemetion của chúng.
+- "Tại sao?":
+  * Nếu có sự sửa đổi code ở các module cấp thấp hơn thì các module cấp cao hơn sẽ phải thay đổi theo, khó bảo trì hơn.
+- Giải pháp: các module sẽ thực hiện định nghĩa các interface để các module cấp thấp hơn implement chúng.
 
 ## Stagery Pattern:
 ### 1. Đặt vấn đề:
