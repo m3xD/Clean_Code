@@ -109,7 +109,7 @@
 - Nới rộng code hơn khi có nhiều superclass bằng cách extends/implement factory class.
 - Khởi tạo các object và che dấu logic.
 
-### Singleton Pattern:
+## Singleton Pattern:
 ### 1. Đặt vấn đề:
 - Mong muốn có một đối tượng duy nhất để có thể truy xuất mọi nơi.
 - Sử dụng global variable nhưng vi phạm qui tắc tính đóng gói của OOP.
@@ -121,7 +121,7 @@
 - Chỉ có 1 instance duy nhất để truy cập.
 - Có thể sử dụng cho các desgin pattern khác như Factory Abstract.
 
-### Proxy Pattern:
+## Proxy Pattern:
 ### 1. Đặt vấn đề:
 - Mong muốn bổ sung một số thao tác khi thực hiện trên class thực (xác thực,..)
 - Khi muốn thực hiện remote trên môi trường mạng.
@@ -142,3 +142,17 @@
 - Tăng khả năng chịu tải.
 - Dễ nâng cấp, bảo trì.
 
+## Dependency Injection Pattern:
+### 1. Đặt vấn đề:
+- Mong muốn giảm sự phụ thuộc giữa các module với nhau.
+### 2. Giải pháp:
+- Các module không giao tiếp trực tiếp với nhau mà thông qua interface mà module cấp cao định nghĩa.
+- Việc khởi tạo các module thông qua các Container.
+- Cấu trúc cơ bản gồm:
+  * Module cấp cao: là 1 interface cung cấp các methods của service.
+  * Module cấp thấp: các service implement thông qua interface của module cấp cao.
+  * Inject: class đóng vai trò khởi tạo các service và thực hiện các phương thức của service.
+### 3. Điểm mạnh:
+- Giảm sự phụ thuộc giữa các module với nhau.
+- Dễ bảo trì.
+- Dễ viết Unit Test.
